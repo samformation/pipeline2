@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "compilation"
         sh "sh ./make.sh"
-        ls -l
+        sh "ls -l"
       }
     }
   }
