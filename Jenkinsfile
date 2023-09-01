@@ -5,9 +5,20 @@ pipeline {
       steps {
         echo "compilation"
         sh "sh ./make.sh"
-        sh "ls -l || true"
+        sh "ls -l "
         archiveArtifacts artifacts:'code', fingerprint: true
+      }
+    }
+    stage('deploy') {
+      when {
+        expression {
+          currentBuild.result == 'SUCCESS'
+        }
+      }
+      steps {
+        echo "deploy"
       }
     }
   }
 }
+
