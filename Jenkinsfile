@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "compilation"
         sh "sh ./make.sh"
-        sh "ls -l"
+        sh "ls -l || true"
         archiveArtifacts artifacts:'code', fingerprint: true
       }
     }
