@@ -8,7 +8,7 @@ pipeline {
     stage('build') {
       steps {
         echo "compilation"
-        echo "${SECRET}"
+        echo '${SECRET}'
         sh "sh ./make.sh"
         sh "ls -l"
         archiveArtifacts artifacts:'code', fingerprint: true
