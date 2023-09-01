@@ -8,7 +8,6 @@ pipeline {
     stage('build') {
       steps {
         echo "compilation"
-        echo '${SECRET}'
         sh "sh ./make.sh"
         sh "ls -l"
         archiveArtifacts artifacts:'code', fingerprint: true
@@ -21,7 +20,7 @@ pipeline {
         }
       }
       steps {
-        sh "mv code code-${TAGPRJ}-${BUILD_NUMBER}"
+        sh "mv code code-${TAGPRJ}-${SECRET}-${BUILD_NUMBER}"
         sh "ls -l"
         echo "deploy"
       }
