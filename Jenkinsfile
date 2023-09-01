@@ -12,7 +12,7 @@ pipeline {
     stage('deploy') {
       when {
         expression {
-          currentBuild.result == 'SUCCESS'
+          currentBuild.result == 'SUCCESS' || currentBuild.result == null
         }
       }
       steps {
