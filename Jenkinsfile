@@ -4,6 +4,8 @@ pipeline {
     stage('build') {
       steps {
         echo "compilation"
+        sh "sh ./make.sh"
+        ls -l
       }
     }
   }
