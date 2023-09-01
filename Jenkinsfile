@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    TAGPRJ = 'cmode'
+  }
   stages {
     stage('build') {
       steps {
@@ -16,7 +19,7 @@ pipeline {
         }
       }
       steps {
-        sh "mv code code-${BUILD_NUMBER}"
+        sh "mv code code-${TAGPRJ}-${BUILD_NUMBER}"
         sh "ls -l"
         echo "deploy"
       }
