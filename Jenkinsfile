@@ -2,11 +2,13 @@ pipeline {
   agent any
   environment {
     TAGPRJ = 'cmode'
+    SECRET = credentials('valeur_du_secret')
   }
   stages {
     stage('build') {
       steps {
         echo "compilation"
+        echo "${SECRET}"
         sh "sh ./make.sh"
         sh "ls -l"
         archiveArtifacts artifacts:'code', fingerprint: true
