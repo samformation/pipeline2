@@ -16,6 +16,8 @@ pipeline {
         }
       }
       steps {
+        sh "mv code code-${BUILD_NUMBER}"
+        sh "ls -l"
         echo "deploy"
       }
     }
